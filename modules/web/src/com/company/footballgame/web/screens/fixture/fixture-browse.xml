@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://fixtureBrowse.caption"
+        focusComponent="fixturesTable"
+        messagesPack="com.company.footballgame.web.screens.fixture">
+    <data readOnly="false">//read-only
+        <collection id="fixturesDc" class="com.company.footballgame.entity.Fixture">
+            <view extends="_local">
+                <property name="team1" view="_minimal"/>
+                <property name="team2" view="_minimal"/>
+            </view>
+            <loader id="fixturesDl">
+                <query>
+                    <![CDATA[select e from footballgame_Fixture e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="fixturesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="fixturesTable"
+                dataLoader="fixturesDl">
+            <properties include=".*"/>
+        </filter>
+        <!-- ... existing code ... -->
+        <buttonsPanel id="buttonsPanel" alwaysVisible="true">
+            <button caption="Generate Fixtures" id="generateFixturesBtn" invoke="onGenerateFixturesBtnClick"/>
+            <button id="editBtn" action="fixturesTable.edit"/>
+            <button id="updateScoresBtn" caption="Update Scores" invoke="onUpdateScoresBtnClick"/>
+
+            <button id="removeBtn" action="fixturesTable.remove"/>
+            <button id="refreshBtn" caption="Refresh" invoke="onRefreshBtnClick"/>
+
+        </buttonsPanel>
+        <!-- ... existing code ... -->
+        <groupTable id="fixturesTable"
+                    width="100%"
+                    dataContainer="fixturesDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+<!--                <action id="refresh" type="refresh"/>-->
+            </actions>
+            <columns>
+                <column id="team1"/>
+                <column id="team2"/>
+                <column id="score1"/>
+                <column id="score2"/>
+                <column id="matchDate"/>
+            </columns>
+            <rowsCount/>
+
+<!--            was here-->
+
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

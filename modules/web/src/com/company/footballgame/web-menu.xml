@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
+    <menu id="application-footballgame" insertBefore="administration" caption="mainMsg://menu_config.application-footballgame">
+        <item screen="footballgame_Team.browse" caption="mainMsg://menu_config.footballgame_Team.browse"/>
+        <item screen="screen" caption="mainMsg://menu_config.screen"/>
+        <item screen="footballgame_Fixture.browse" caption="mainMsg://menu_config.footballgame_Fixture.browse"/>
+        <item screen="footballgame_LogTable.browse" caption="mainMsg://menu_config.footballgame_LogTable.browse"/>
+    </menu>
+</menu-config>
