@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://logTableBrowse.caption"
+        focusComponent="logTablesTable"
+        messagesPack="com.company.footballgame.web.screens.logtable">
+    <data readOnly="true">
+        <collection id="logTablesDc"
+                    class="com.company.footballgame.entity.LogTable"
+                    view="logTable-view">
+            <loader id="logTablesDl">
+                <query><![CDATA[select e from footballgame_LogTable e order by e.points desc, (e.goalsFor - e.goalsAgainst) desc]]></query>
+            </loader>
+        </collection>
+    </data>
+    <layout expand="logTablesTable" spacing="true">
+        <!-- Buttons Panel for actions -->
+        <buttonsPanel id="buttonsPanel" alwaysVisible="true">
+            <button id="refreshBtn" caption="Refresh Standings" invoke="onRefreshStandingsBtnClick"/>
+        </buttonsPanel>
+        <groupTable id="logTablesTable"
+                    width="100%"
+                    dataContainer="logTablesDc">
+            <columns>
+                <column id="team"/>
+<!--                <column id="position"/>-->
+                <column id="wins"/>
+                <column id="draws"/>
+                <column id="losses"/>
+                <column id="goalsFor"/>
+                <column id="goalsAgainst"/>
+                <column id="points"/>
+            </columns>
+            <rowsCount/>
+        </groupTable>
+    </layout>
+</window>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://logTableEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.footballgame.web.screens.logtable">
+    <data>
+        <instance id="logTableDc"
+                  class="com.company.footballgame.entity.LogTable">
+            <view extends="_local">
+                <property name="team" view="_minimal"/>
+            </view>
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="logTableDc">
+            <column width="350px">
+                <pickerField id="teamNameField" property="team">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </pickerField>
+                <textField id="winsField" property="wins"/>
+                <textField id="lossesField" property="losses"/>
+                <textField id="drawsField" property="draws"/>
+                <textField id="goalsForField" property="goalsFor"/>
+                <textField id="goalsAgainstField" property="goalsAgainst"/>
+                <textField id="pointsField" property="points"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+        <button/>
+    </layout>
+</window>

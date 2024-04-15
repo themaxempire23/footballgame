@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
+
+    <view entity="footballgame_LogTable" name="logTable-view" extends="_local">
+        <property name="team" view="_minimal"/>
+    </view>
+    <view entity="footballgame_Team" name="team-view" extends="_local" systemProperties="true"/>
+    <view entity="footballgame_Fixture" name="fixture-view" extends="_local">
+        <property name="score1"/>
+        <property name="score2"/>
+        <property name="team1" view="_minimal"/>
+        <property name="team2" view="_minimal"/>
+    </view>
+</views>
