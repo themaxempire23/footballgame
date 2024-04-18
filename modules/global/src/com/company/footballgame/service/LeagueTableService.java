@@ -35,5 +35,7 @@ public interface LeagueTableService {
     //void refreshLeagueTable(LogTable logTable);
 
     //void refreshLeagueTable(LogTable logTable);
+
+    void refreshLogTablesBasedOnExistingTeams();
 }
 

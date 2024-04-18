@@ -12,6 +12,7 @@
 
 package com.company.footballgame.web.screens.fixture;
 
+import com.haulmont.cuba.core.global.DataManager;
 import com.haulmont.cuba.gui.Notifications;
 import com.haulmont.cuba.gui.components.Button;
 import com.haulmont.cuba.gui.components.GroupTable;
@@ -21,6 +22,7 @@ import com.company.footballgame.service.FixtureService;
 import com.haulmont.cuba.gui.model.CollectionLoader;
 
 import javax.inject.Inject;
+import java.util.List;
 
 @UiController("footballgame_Fixture.browse")
 @UiDescriptor("fixture-browse.xml")
@@ -37,6 +39,8 @@ public class FixtureBrowse extends StandardLookup<Fixture> {
     private CollectionLoader<Fixture> fixturesDl;
     @Inject
     private Button refreshBtn;
+    @Inject
+    private DataManager dataManager;
 
     // Method triggered by clicking "Generate Fixtures" button
     public void onGenerateFixturesBtnClick() {
@@ -88,8 +92,40 @@ public class FixtureBrowse extends StandardLookup<Fixture> {
             notifications.create().withCaption("Fixtures refreshed successfully.").show();
         } catch (Exception e) {
             notifications.create().withCaption("Error refreshing fixtures: " + e.getMessage()).show();
-       }
+        }
     }
+
+
+    //This is how my update button works all
+    public void onUpdateAllScoresBtnClick() {
+        {
+            // Load fixtures that haven't had their scores updated.
+            List<Fixture> fixturesToUpdate = dataManager.load(Fixture.class)
+                    .query("select f from footballgame_Fixture f where f.scoresUpdated = false")
+                    .view("fixture-view")
+                    .list();
+
+            for (Fixture fixture : fixturesToUpdate) {
+                try {
+                    // Use the existing service method to update fixtures and corresponding log table entries.
+                    fixtureService.updateFixtureAndLogTable(fixture);
+                } catch (Exception e) {
+                    notifications.create()
+                            .withCaption("Error updating fixture scores: " + e.getMessage())
+                            .show();
+                    // If an error occurs, stop further processing.
+                    return;
+                }
+            }
+
+            // Reload fixtures to show the updated statuses.
+            fixturesDl.load();
+            notifications.create()
+                    .withCaption("All scores updated successfully.")
+                    .show();
+        }
+    }
+
 }
 
 

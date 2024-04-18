@@ -145,6 +145,28 @@ public class LeagueTableServiceBean implements LeagueTableService {
     }
 
 
+    //New method and logic for refresh league standings button, based on existing teams
+    @Override
+    public void refreshLogTablesBasedOnExistingTeams() {
+        // Loading all my existing teams.
+        List<Team> existingTeams = dataManager.load(Team.class)
+                .query("select e from footballgame_Team e")
+                .view("team-view") // Use the team-view if it includes all necessary attributes
+                .list();
+
+        // Fetching all my fixtures using the fixture-view that includes my team1 and team2.
+        List<Fixture> allFixtures = dataManager.load(Fixture.class)
+                .query("select e from footballgame_Fixture e")
+                .view("fixture-view") // Specify the fixture-view here
+                .list();
+
+        // How I filter and remove fixtures involving non-existent teams.
+        allFixtures.stream()
+                .filter(fixture -> !existingTeams.contains(fixture.getTeam1()) || !existingTeams.contains(fixture.getTeam2()))
+                .forEach(dataManager::remove);
+    }
+
+
     private LogTable getOrCreateLogTable(Team team) {
         LogTable logTable = dataManager.load(LogTable.class)
                 .query("select l from footballgame_LogTable l where l.team = :team")

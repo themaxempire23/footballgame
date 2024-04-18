@@ -11,5 +11,6 @@
         <property name="score1"/>
         <property name="score2"/>
         <property name="matchDate"/>
+        <property name="scoresUpdated"/>
     </view>
 </views>

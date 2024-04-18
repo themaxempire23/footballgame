@@ -20,7 +20,7 @@ public class FixtureServiceBean implements FixtureService {
     @Inject
     private LeagueTableService leagueTableService;
 
-    //private Date seasonStartDate; // This should be initialized to your league's start date.
+
 
     @Override
     public void generateFixtures() {
@@ -43,12 +43,30 @@ public class FixtureServiceBean implements FixtureService {
 
     @Override
     public void updateFixtureAndLogTable(Fixture fixture) {
-        fixture = dataManager.commit(fixture);
+//        fixture = dataManager.commit(fixture);
+//
+//        leagueTableService.updateLeagueTable(fixture);
+
+        // Here I get to reload the fixture from the database to ensure it's managed and has the latest state regarding my teams and etc
+        fixture = dataManager.reload(fixture, "fixture-view");
+
+
+        if (Boolean.TRUE.equals(fixture.getScoresUpdated())) {
+
+            return;
+        }
+
 
         leagueTableService.updateLeagueTable(fixture);
+
+
+        fixture.setScoresUpdated(true);
+
+
+        dataManager.commit(fixture);
     }
 
-    // How my
+
     @Override
     @Transactional
     public void refreshFixturesBasedOnExistingTeams() {
@@ -65,11 +83,12 @@ public class FixtureServiceBean implements FixtureService {
                     .view("fixture-view") // Specify the fixture-view here
                     .list();
 
-            // How I ilter and remove fixtures involving non-existent teams.
+            // How I filter and remove fixtures involving non-existent teams.
             allFixtures.stream()
                     .filter(fixture -> !existingTeams.contains(fixture.getTeam1()) || !existingTeams.contains(fixture.getTeam2()))
                     .forEach(dataManager::remove);
         }
+
 
 
 
@@ -85,7 +104,7 @@ public class FixtureServiceBean implements FixtureService {
         fixture.setTeam2(team2);
         fixture.setScore1(null); // Match has not been played yet
         fixture.setScore2(null); // Match has not been played yet
-        fixture.setMatchDate(calendar.getTime()); // Set the match date
+        fixture.setMatchDate(calendar.getTime()); // Setting the match date
         dataManager.commit(fixture);
     }
 }

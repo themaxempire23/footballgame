@@ -101,6 +101,20 @@ public class Fixture extends StandardEntity {
     private Date matchDate;
 
 
+    // This Boolean attribute  is to determine wether a score is already updated or not.
+    @Column(name = "SCORES_UPDATED")
+    private Boolean scoresUpdated = false;
+
+    // I used getters and setters for tracking of the scores accurately
+    public Boolean getScoresUpdated() {
+        return scoresUpdated;
+    }
+
+    public void setScoresUpdated(Boolean scoresUpdated) {
+        this.scoresUpdated = scoresUpdated;
+    }
+
+
     public Team getTeam1() {
         return team1;
     }

@@ -31,7 +31,7 @@
             <button caption="Generate Fixtures" id="generateFixturesBtn" invoke="onGenerateFixturesBtnClick"/>
             <button id="editBtn" action="fixturesTable.edit"/>
             <button id="updateScoresBtn" caption="Update Scores" invoke="onUpdateScoresBtnClick"/>
-
+            <button id="updateAllScoresBtn" caption="Update All Scores" invoke="onUpdateAllScoresBtnClick"/>
             <button id="removeBtn" action="fixturesTable.remove"/>
             <button id="refreshBtn" caption="Refresh" invoke="onRefreshBtnClick"/>
 
