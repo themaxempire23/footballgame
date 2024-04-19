@@ -9,7 +9,10 @@ public interface FixtureService {
 
     void updateFixtureAndLogTable(Fixture fixture);
 
+<<<<<<< HEAD
     void refreshFixturesBasedOnExistingTeams();
 
+=======
+>>>>>>> be7c31e4ed75bceeb8a0212d76dd8162e99b26e7
 
 }

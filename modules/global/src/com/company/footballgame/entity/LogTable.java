@@ -41,10 +41,15 @@ public class LogTable extends StandardEntity {
     @Column(name = "POINTS", nullable = false)
     private Integer points = 0;
 
+<<<<<<< HEAD
 
     // Getters and setters...
 
 
+=======
+    // Getters and setters...
+
+>>>>>>> be7c31e4ed75bceeb8a0212d76dd8162e99b26e7
     // Existing LogTable entity code...
 
     public Team getTeam() {

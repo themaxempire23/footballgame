@@ -101,6 +101,7 @@ public class Fixture extends StandardEntity {
     private Date matchDate;
 
 
+<<<<<<< HEAD
     // This Boolean attribute  is to determine wether a score is already updated or not.
     @Column(name = "SCORES_UPDATED")
     private Boolean scoresUpdated = false;
@@ -115,6 +116,8 @@ public class Fixture extends StandardEntity {
     }
 
 
+=======
+>>>>>>> be7c31e4ed75bceeb8a0212d76dd8162e99b26e7
     public Team getTeam1() {
         return team1;
     }

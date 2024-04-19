@@ -15,14 +15,22 @@ public class TeamServiceBean implements TeamService {
 
     @Override
     public Team createTeam(String name) {
+<<<<<<< HEAD
         // Creating a new team instance and set the name
         Team team = dataManager.create(Team.class);
         team.setName(name);
         // Saving the new team to the database
+=======
+        // Create a new team instance and set the name
+        Team team = dataManager.create(Team.class);
+        team.setName(name);
+        // Save the new team to the database
+>>>>>>> be7c31e4ed75bceeb8a0212d76dd8162e99b26e7
         return dataManager.commit(team);
     }
 
     @Override
+<<<<<<< HEAD
     public Team removeTeam(Team team) {
 
         Team removedTeam = dataManager.reload(team, "team-view");
@@ -30,12 +38,22 @@ public class TeamServiceBean implements TeamService {
         // Remove the team from the database
         dataManager.remove(team);
         return dataManager.commit(removedTeam);
+=======
+    public void removeTeam(Team team) {
+        // Remove the team from the database
+        dataManager.remove(team);
+>>>>>>> be7c31e4ed75bceeb8a0212d76dd8162e99b26e7
     }
 
     @Override
     public Team updateTeamInfo(Team team, String newName) {
+<<<<<<< HEAD
         // Loading the team from the database, update the name, and save
         Team managedTeam = dataManager.reload(team, "team-view"); // my 'team-view' should include all necessary attributes
+=======
+        // Load the team from the database, update the name, and save
+        Team managedTeam = dataManager.reload(team, "team-view"); // 'team-view' should include all necessary attributes
+>>>>>>> be7c31e4ed75bceeb8a0212d76dd8162e99b26e7
         managedTeam.setName(newName);
         return dataManager.commit(managedTeam);
     }
@@ -48,8 +66,11 @@ public class TeamServiceBean implements TeamService {
                 .list();
     }
 
+<<<<<<< HEAD
 
     //Searching team info from db
+=======
+>>>>>>> be7c31e4ed75bceeb8a0212d76dd8162e99b26e7
     @Override
     public Team getTeamById(UUID teamId) {
         // Find a team by its ID

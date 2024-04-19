@@ -145,6 +145,7 @@ public class LeagueTableServiceBean implements LeagueTableService {
     }
 
 
+<<<<<<< HEAD
     //New method and logic for refresh league standings button, based on existing teams
     @Override
     public void refreshLogTablesBasedOnExistingTeams() {
@@ -167,6 +168,8 @@ public class LeagueTableServiceBean implements LeagueTableService {
     }
 
 
+=======
+>>>>>>> be7c31e4ed75bceeb8a0212d76dd8162e99b26e7
     private LogTable getOrCreateLogTable(Team team) {
         LogTable logTable = dataManager.load(LogTable.class)
                 .query("select l from footballgame_LogTable l where l.team = :team")

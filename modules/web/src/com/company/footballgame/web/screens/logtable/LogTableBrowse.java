@@ -1,15 +1,21 @@
 package com.company.footballgame.web.screens.logtable;
 
 import com.company.footballgame.entity.Fixture;
+<<<<<<< HEAD
 import com.company.footballgame.service.FixtureService;
+=======
+>>>>>>> be7c31e4ed75bceeb8a0212d76dd8162e99b26e7
 import com.company.footballgame.service.LeagueTableService;
 //import com.company.footballgame.service.LeagueTableServiceBean;
 import com.haulmont.cuba.core.global.DataManager;
 import com.haulmont.cuba.gui.Notifications;
+<<<<<<< HEAD
 import com.haulmont.cuba.gui.components.Button;
 import com.haulmont.cuba.gui.components.ButtonsPanel;
 import com.haulmont.cuba.gui.components.GroupTable;
 import com.haulmont.cuba.gui.model.CollectionContainer;
+=======
+>>>>>>> be7c31e4ed75bceeb8a0212d76dd8162e99b26e7
 import com.haulmont.cuba.gui.model.CollectionLoader;
 import com.haulmont.cuba.gui.screen.*;
 import com.company.footballgame.entity.LogTable;
@@ -35,6 +41,7 @@ public class LogTableBrowse extends StandardLookup<LogTable> {
     private DataManager dataManager;
     @Inject
     private Notifications notifications;
+<<<<<<< HEAD
     @Inject
     private CollectionContainer<LogTable> logTablesDc;
     @Inject
@@ -45,6 +52,8 @@ public class LogTableBrowse extends StandardLookup<LogTable> {
     private FixtureService fixtureService;
     @Inject
     private Button refreshBtn;
+=======
+>>>>>>> be7c31e4ed75bceeb8a0212d76dd8162e99b26e7
 
 //    public void onRefreshStandingsBtnClick() {
 //        leagueTableService.refreshLeagueTable();
@@ -53,6 +62,7 @@ public class LogTableBrowse extends StandardLookup<LogTable> {
 
 
     //Testing this now
+<<<<<<< HEAD
 //    public void onRefreshStandingsBtnClick() {
 //        try {
 //            leagueTableService.refreshLogTablesBasedOnExistingTeams(); // Call the instance method
@@ -86,8 +96,27 @@ public class LogTableBrowse extends StandardLookup<LogTable> {
                         .show();
             }
         }
-
-
-
-
+=======
+    public void onRefreshStandingsBtnClick() {
+        try {
+            leagueTableService.refreshLeagueTable();
+            logTablesDl.load();
+            notifications.create(Notifications.NotificationType.HUMANIZED)
+                    .withCaption("Standings updated successfully")
+                    .show();
+        } catch (Exception e) {
+            notifications.create(Notifications.NotificationType.ERROR)
+                    .withCaption("Failed to update standings: " + e.getMessage())
+                    .show();
+        }
     }
+>>>>>>> be7c31e4ed75bceeb8a0212d76dd8162e99b26e7
+
+
+
+
+<<<<<<< HEAD
+    }
+=======
+}
+>>>>>>> be7c31e4ed75bceeb8a0212d76dd8162e99b26e7

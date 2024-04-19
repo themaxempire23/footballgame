@@ -12,9 +12,13 @@
 
 package com.company.footballgame.web.screens.fixture;
 
+<<<<<<< HEAD
 import com.haulmont.cuba.core.global.DataManager;
 import com.haulmont.cuba.gui.Notifications;
 import com.haulmont.cuba.gui.components.Button;
+=======
+import com.haulmont.cuba.gui.Notifications;
+>>>>>>> be7c31e4ed75bceeb8a0212d76dd8162e99b26e7
 import com.haulmont.cuba.gui.components.GroupTable;
 import com.haulmont.cuba.gui.screen.*;
 import com.company.footballgame.entity.Fixture;
@@ -22,7 +26,10 @@ import com.company.footballgame.service.FixtureService;
 import com.haulmont.cuba.gui.model.CollectionLoader;
 
 import javax.inject.Inject;
+<<<<<<< HEAD
 import java.util.List;
+=======
+>>>>>>> be7c31e4ed75bceeb8a0212d76dd8162e99b26e7
 
 @UiController("footballgame_Fixture.browse")
 @UiDescriptor("fixture-browse.xml")
@@ -37,10 +44,13 @@ public class FixtureBrowse extends StandardLookup<Fixture> {
     private Notifications notifications;
     @Inject
     private CollectionLoader<Fixture> fixturesDl;
+<<<<<<< HEAD
     @Inject
     private Button refreshBtn;
     @Inject
     private DataManager dataManager;
+=======
+>>>>>>> be7c31e4ed75bceeb8a0212d76dd8162e99b26e7
 
     // Method triggered by clicking "Generate Fixtures" button
     public void onGenerateFixturesBtnClick() {
@@ -67,6 +77,7 @@ public class FixtureBrowse extends StandardLookup<Fixture> {
             notifications.create().withCaption("Please select a fixture to update.").show();
         }
     }
+<<<<<<< HEAD
 
 //    @Subscribe("refreshBtn")
 //    public void onRefreshBtnClick(Button.ClickEvent event) {
@@ -129,3 +140,6 @@ public class FixtureBrowse extends StandardLookup<Fixture> {
 }
 
 
+=======
+}
+>>>>>>> be7c31e4ed75bceeb8a0212d76dd8162e99b26e7

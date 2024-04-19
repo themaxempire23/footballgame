@@ -4,13 +4,19 @@ import com.company.footballgame.entity.Fixture;
 import com.company.footballgame.entity.Team;
 import com.haulmont.cuba.core.global.DataManager;
 import org.springframework.stereotype.Service;
+<<<<<<< HEAD
 import org.springframework.transaction.annotation.Transactional;
+=======
+>>>>>>> be7c31e4ed75bceeb8a0212d76dd8162e99b26e7
 
 import javax.inject.Inject;
 import java.util.Calendar;
 //import java.util.Date;
 import java.util.List;
+<<<<<<< HEAD
 import java.util.stream.Collectors;
+=======
+>>>>>>> be7c31e4ed75bceeb8a0212d76dd8162e99b26e7
 
 @Service(FixtureService.NAME)
 public class FixtureServiceBean implements FixtureService {
@@ -20,7 +26,11 @@ public class FixtureServiceBean implements FixtureService {
     @Inject
     private LeagueTableService leagueTableService;
 
+<<<<<<< HEAD
 
+=======
+    //private Date seasonStartDate; // This should be initialized to your league's start date.
+>>>>>>> be7c31e4ed75bceeb8a0212d76dd8162e99b26e7
 
     @Override
     public void generateFixtures() {
@@ -43,6 +53,7 @@ public class FixtureServiceBean implements FixtureService {
 
     @Override
     public void updateFixtureAndLogTable(Fixture fixture) {
+<<<<<<< HEAD
 //        fixture = dataManager.commit(fixture);
 //
 //        leagueTableService.updateLeagueTable(fixture);
@@ -92,6 +103,13 @@ public class FixtureServiceBean implements FixtureService {
 
 
 
+=======
+        fixture = dataManager.commit(fixture);
+
+        leagueTableService.updateLeagueTable(fixture);
+    }
+
+>>>>>>> be7c31e4ed75bceeb8a0212d76dd8162e99b26e7
     private List<Team> getAllTeams() {
         return dataManager.load(Team.class)
                 .query("select t from footballgame_Team t")
@@ -104,7 +122,11 @@ public class FixtureServiceBean implements FixtureService {
         fixture.setTeam2(team2);
         fixture.setScore1(null); // Match has not been played yet
         fixture.setScore2(null); // Match has not been played yet
+<<<<<<< HEAD
         fixture.setMatchDate(calendar.getTime()); // Setting the match date
+=======
+        fixture.setMatchDate(calendar.getTime()); // Set the match date
+>>>>>>> be7c31e4ed75bceeb8a0212d76dd8162e99b26e7
         dataManager.commit(fixture);
     }
 }

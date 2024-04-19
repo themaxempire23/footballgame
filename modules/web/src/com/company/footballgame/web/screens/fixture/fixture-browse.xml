@@ -31,10 +31,16 @@
             <button caption="Generate Fixtures" id="generateFixturesBtn" invoke="onGenerateFixturesBtnClick"/>
             <button id="editBtn" action="fixturesTable.edit"/>
             <button id="updateScoresBtn" caption="Update Scores" invoke="onUpdateScoresBtnClick"/>
+<<<<<<< HEAD
             <button id="updateAllScoresBtn" caption="Update All Scores" invoke="onUpdateAllScoresBtnClick"/>
             <button id="removeBtn" action="fixturesTable.remove"/>
             <button id="refreshBtn" caption="Refresh" invoke="onRefreshBtnClick"/>
 
+=======
+
+            <button id="removeBtn" action="fixturesTable.remove"/>
+            <button id="refreshBtn" action="fixturesTable.refresh"/>
+>>>>>>> be7c31e4ed75bceeb8a0212d76dd8162e99b26e7
         </buttonsPanel>
         <!-- ... existing code ... -->
         <groupTable id="fixturesTable"
@@ -44,7 +50,11 @@
                 <action id="create" type="create"/>
                 <action id="edit" type="edit"/>
                 <action id="remove" type="remove"/>
+<<<<<<< HEAD
 <!--                <action id="refresh" type="refresh"/>-->
+=======
+                <action id="refresh" type="refresh"/>
+>>>>>>> be7c31e4ed75bceeb8a0212d76dd8162e99b26e7
             </actions>
             <columns>
                 <column id="team1"/>

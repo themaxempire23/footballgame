@@ -5,6 +5,7 @@
         <property name="team" view="_minimal"/>
     </view>
     <view entity="footballgame_Team" name="team-view" extends="_local" systemProperties="true"/>
+<<<<<<< HEAD
     <view entity="footballgame_Fixture" name="fixture-view" extends="_minimal">
         <property name="team2" view="_local"/>
         <property name="team1" view="_local"/>
@@ -12,5 +13,12 @@
         <property name="score2"/>
         <property name="matchDate"/>
         <property name="scoresUpdated"/>
+=======
+    <view entity="footballgame_Fixture" name="fixture-view" extends="_local">
+        <property name="score1"/>
+        <property name="score2"/>
+        <property name="team1" view="_minimal"/>
+        <property name="team2" view="_minimal"/>
+>>>>>>> be7c31e4ed75bceeb8a0212d76dd8162e99b26e7
     </view>
 </views>

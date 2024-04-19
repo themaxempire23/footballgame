@@ -52,7 +52,10 @@ create table FOOTBALLGAME_FIXTURE (
     SCORE1 integer,
     SCORE2 integer,
     MATCH_DATE date,
+<<<<<<< HEAD
     SCORES_UPDATED boolean,
+=======
+>>>>>>> be7c31e4ed75bceeb8a0212d76dd8162e99b26e7
     --
     primary key (ID)
 )^
